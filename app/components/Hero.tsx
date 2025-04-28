@@ -1,9 +1,11 @@
 "use client";
 
+import MagicButton from "@/components/ui/MagicButton";
 import { Spotlights } from "@/components/ui/Spotlight";
 import { Spotlight } from "@/components/ui/SpotlightNew";
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 import { ModeToggle } from "./Themes/ThemeToggle";
 
 const Hero = () => {
@@ -21,7 +23,7 @@ const Hero = () => {
         />
         <Spotlights className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
       </div>
-      <div className="absolute inset-0 flex items-center justify-center z-0">
+      <div className="absolute inset-0 flex items-center justify-center z-0 h-screen w-full">
         <Spotlight
           gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(59, 130, 246, 0) 80%)"
           gradientSecond="radial-gradient(50% 50% at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 80%, transparent 100%)"
@@ -32,7 +34,7 @@ const Hero = () => {
         <div
           className={cn(
             "absolute inset-0",
-            "[background-size:60px_60px]",
+            "[background-size:80px_80px]",
             "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
             "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
           )}
@@ -69,6 +71,13 @@ const Hero = () => {
         {/* Mode Toggle Button */}
         <div className="mt-8">
           <ModeToggle />
+          <a href="#about">
+            <MagicButton
+              title="Show my work"
+              icon={<ArrowRight />}
+              position="right"
+            />
+          </a>
         </div>
       </div>
     </div>
