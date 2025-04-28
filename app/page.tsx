@@ -1,13 +1,13 @@
-import { Button } from "@/components/ui/button";
-import { ModeToggle } from "./components/dashboard/ThemeToggle";
+import { FloatingNav } from "@/components/ui/FloatingNavbar";
+import { navItems } from "@/data";
+import Hero from "./components/Hero";
 
 export default function Home() {
   return (
     <main className="relative flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
-        <h1 className="text-3xl">Nooooooo</h1>
-        <Button className="mx-5">new shadcn</Button>
-        <ModeToggle />
+        <FloatingNav navItems={navItems} />
+        <Hero />
       </div>
     </main>
   );
