@@ -3,6 +3,7 @@ import { navItems } from "@/data";
 import About from "./components/About";
 import Grid from "./components/Grid";
 import Hero from "./components/Hero";
+import TimeLine from "./components/TimeLine";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <About />
         <Grid />
+        <TimeLine />
       </div>
     </main>
   );
