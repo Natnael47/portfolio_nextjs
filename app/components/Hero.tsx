@@ -71,7 +71,7 @@ const Hero = () => {
         {/* Mode Toggle Button */}
         <div className="mt-8">
           <ModeToggle />
-          <a href="#about">
+          <a href="#about" className="mx-5 my-2">
             <MagicButton
               title="Show my work"
               icon={<ArrowRight />}
