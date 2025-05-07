@@ -1,6 +1,7 @@
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import { navItems } from "@/data";
 import About from "./components/About";
+import Grid from "./components/Grid";
 import Hero from "./components/Hero";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         <FloatingNav navItems={navItems} />
         <Hero />
         <About />
+        <Grid />
       </div>
     </main>
   );
