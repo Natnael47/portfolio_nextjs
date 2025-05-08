@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,14 +16,46 @@ import {
 } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Mail, Send, Twitter } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const Footer = () => {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setResult("Sending...");
+    const formData = new FormData(event.currentTarget);
+
+    formData.append("access_key", "502f6be7-fd08-43db-b36e-c374f5726fa6");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      toast.success("Message sent successfully!", {
+        description: "I'll get back to you soon.",
+      });
+      event.currentTarget.reset();
+      setResult("");
+    } else {
+      toast.error("Something went wrong", {
+        description: data.message,
+      });
+      setResult(data.message);
+    }
+  };
+
   return (
     <footer
       className="w-full pt-20 pb-10 relative overflow-hidden"
       id="contact"
     >
-      {/* Background grid visible in light & dark */}
+      {/* Background grid */}
       <div className="absolute inset-0 -z-10">
         <img
           src="/footer-grid.svg"
@@ -31,7 +65,7 @@ const Footer = () => {
         <div className="absolute inset-0 bg-gradient-radial from-white/60 via-transparent to-white/10 dark:from-black/80 dark:to-black pointer-events-none" />
       </div>
 
-      {/* Header content */}
+      {/* Header */}
       <div className="flex flex-col items-center text-center px-4">
         <h1 className="heading lg:max-w-[45vw]">
           Ready to take <span className="text-purple">your</span> digital
@@ -41,15 +75,15 @@ const Footer = () => {
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
+        <MagicButton
+          title="Let's get in touch"
+          icon={<Send />}
+          position="right"
+        />
 
-        {/* Contact Form Sheet */}
         <Sheet>
           <SheetTrigger asChild>
-            <MagicButton
-              title="Let's get in touch"
-              icon={<Send />}
-              position="right"
-            />
+            <Button variant="outline">Open</Button>
           </SheetTrigger>
           <SheetContent
             side="right"
@@ -64,18 +98,30 @@ const Footer = () => {
                 in touch.
               </SheetDescription>
             </SheetHeader>
-            <form className="grid gap-6 py-6">
+            <form className="grid gap-6 py-6" onSubmit={onSubmit}>
               <div className="grid gap-2 px-5">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" placeholder="Your name" />
+                <Input id="name" name="name" placeholder="Your name" required />
               </div>
               <div className="grid gap-2 px-5">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="you@example.com" />
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
               </div>
               <div className="grid gap-2 px-5">
                 <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Your message..." rows={6} />
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your message..."
+                  rows={6}
+                  required
+                />
               </div>
               <SheetFooter>
                 <SheetClose asChild>
@@ -89,12 +135,11 @@ const Footer = () => {
         </Sheet>
       </div>
 
-      {/* Bottom copyright & icons */}
+      {/* Footer bottom */}
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center gap-6 px-4">
         <p className="md:text-base text-sm text-white-300">
           © 2024 Adrian Hajdin. All rights reserved.
         </p>
-
         <div className="flex items-center gap-4">
           {[
             {
