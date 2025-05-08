@@ -331,7 +331,7 @@ export const words2 = [
     className: "text-blue-500 dark:text-blue-500",
   },
   {
-    text: "Mahteme",
+    text: "Mahteme.",
     className: "text-blue-500 dark:text-blue-500",
   },
 ];

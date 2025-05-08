@@ -1,24 +1,25 @@
 "use client";
 
-import { FlipWords } from "@/components/ui/flip-words";
+import { ContainerTextFlip } from "@/components/ui/container-text-flip";
 import MagicButton from "@/components/ui/MagicButton";
 import { Spotlights } from "@/components/ui/Spotlight";
 import { Spotlight } from "@/components/ui/SpotlightNew";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { words2 } from "@/data/index";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
+import { motion } from "motion/react";
 import { ModeToggle } from "./Themes/ThemeToggle";
 
 const Hero = () => {
   const words = [
     "FullStack Developer",
     "UI/UX Designer",
-    "Frontend Developer",
     "Backend Developer",
+    "Frontend Developer",
   ];
   return (
-    <div className="pb-28 pt-36">
+    <div className="pb-28 pt-36 h-screen">
       {/* Background Grid + Spotlight */}
       <div>
         <Spotlights
@@ -42,7 +43,7 @@ const Hero = () => {
         <div
           className={cn(
             "absolute inset-0",
-            "[background-size:80px_80px]",
+            "[background-size:90px_90px]",
             "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
             "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
           )}
@@ -52,7 +53,7 @@ const Hero = () => {
         <div
           // chnage the bg to bg-black-100, so it matches the bg color and will blend in
           className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black)]"
+         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
         />
       </div>
 
@@ -62,26 +63,57 @@ const Hero = () => {
           words={words2}
           className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-medium"
         />
-
-        <h1 className="mt-4 text-2xl sm:text-2xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-          I'm <FlipWords words={words} />
-        </h1>
+        <motion.h1
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }}
+          className={cn(
+            "relative mb-6 max-w-7xl text-left text-4xl leading-normal font-bold tracking-tight text-zinc-700 md:text-7xl dark:text-zinc-100"
+          )}
+          layout
+        >
+          <div className="inline-block">
+            I'm <ContainerTextFlip words={words} />
+            {/* <Blips /> */}
+          </div>
+        </motion.h1>
 
         <p className="mt-6 font-normal text-base max-w-lg">
           A subtle yet effective spotlight effect, because the previous version
           is used a bit too much these days.
         </p>
 
-        {/* Mode Toggle Button */}
-        <div className="mt-8">
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
           <ModeToggle />
-          <a href="#about" className="mx-5 my-2">
+          <motion.a
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            href="#contact"
+          >
             <MagicButton
-              title="Show my work"
-              icon={<ArrowRight />}
+              title="Contact Me"
+              icon={<ArrowRight className="w-5" />}
               position="right"
             />
-          </a>
+          </motion.a>
+          <motion.a
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.3 }}
+            href="/resume.pdf"
+            download
+          >
+            <MagicButton
+              title="My Resume"
+              icon={<Download className="w-5" />}
+              position="right"
+            />
+          </motion.a>
         </div>
       </div>
     </div>
