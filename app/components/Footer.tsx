@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import MagicButton from "@/components/ui/MagicButton";
 import {
   Sheet,
   SheetClose,
@@ -60,7 +59,7 @@ const Footer = () => {
         <img
           src="/footer-grid.svg"
           alt="background grid"
-          className="w-full h-full object-cover opacity-40 dark:opacity-20"
+          className="w-full h-full object-cover opacity-40 dark:opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-radial from-white/60 via-transparent to-white/10 dark:from-black/80 dark:to-black pointer-events-none" />
       </div>
@@ -75,15 +74,15 @@ const Footer = () => {
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
-        <MagicButton
-          title="Let's get in touch"
-          icon={<Send />}
-          position="right"
-        />
 
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline">Open</Button>
+            <button className="relative group inline-flex items-center overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer">
+              <span className="flex items-center gap-2 px-6 py-2 text-sm font-medium rounded-md bg-white text-black dark:bg-slate-900 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
+                Send Message
+                <Send size={18} />
+              </span>
+            </button>
           </SheetTrigger>
           <SheetContent
             side="right"
@@ -125,7 +124,10 @@ const Footer = () => {
               </div>
               <SheetFooter>
                 <SheetClose asChild>
-                  <Button type="submit" className="w-full sm:w-auto">
+                  <Button
+                    type="submit"
+                    className="w-full sm:w-auto hover:bg-gray-400 cursor-pointer"
+                  >
                     Submit
                   </Button>
                 </SheetClose>
@@ -138,7 +140,7 @@ const Footer = () => {
       {/* Footer bottom */}
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center gap-6 px-4">
         <p className="md:text-base text-sm text-white-300">
-          © 2024 Adrian Hajdin. All rights reserved.
+          © 2024 Natnael Mahteme. All rights reserved.
         </p>
         <div className="flex items-center gap-4">
           {[
@@ -164,7 +166,7 @@ const Footer = () => {
               aria-label={label}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-full border border-black/20 dark:border-white/10 bg-black/10 dark:bg-white/10 backdrop-blur-md transition hover:scale-105"
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-black/20 dark:border-white/10 bg-gray-50 dark:bg-white/10 backdrop-blur-md transition hover:scale-105"
             >
               {icon}
             </a>
