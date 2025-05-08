@@ -312,3 +312,26 @@ export const aboutMe = [
     link: "https://microsoft.com",
   },
 ];
+
+export const words2 = [
+  {
+    text: "Hello,",
+  },
+  {
+    text: "My",
+  },
+  {
+    text: "Name",
+  },
+  {
+    text: "Is",
+  },
+  {
+    text: "Natnael",
+    className: "text-blue-500 dark:text-blue-500",
+  },
+  {
+    text: "Mahteme",
+    className: "text-blue-500 dark:text-blue-500",
+  },
+];

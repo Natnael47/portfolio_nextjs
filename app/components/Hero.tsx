@@ -1,14 +1,22 @@
 "use client";
 
+import { FlipWords } from "@/components/ui/flip-words";
 import MagicButton from "@/components/ui/MagicButton";
 import { Spotlights } from "@/components/ui/Spotlight";
 import { Spotlight } from "@/components/ui/SpotlightNew";
-import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { words2 } from "@/data/index";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { ModeToggle } from "./Themes/ThemeToggle";
 
 const Hero = () => {
+  const words = [
+    "FullStack Developer",
+    "UI/UX Designer",
+    "Frontend Developer",
+    "Backend Developer",
+  ];
   return (
     <div className="pb-28 pt-36">
       {/* Background Grid + Spotlight */}
@@ -49,18 +57,14 @@ const Hero = () => {
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center mx-auto p-4 max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] w-full h-full text-center">
-        <p className="uppercase tracking-widest text-xs max-w-80">
-          Dynamic Web Magic with Next.js
-        </p>
+      <div className="relative z-10 flex flex-col items-center justify-center mx-auto max-w-5xl md:max-w-2xl lg:max-w-[60vw] w-11/12 h-full text-center">
+        <TypewriterEffectSmooth
+          words={words2}
+          className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-medium"
+        />
 
-        <h1 className="mt-4 text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-          <TextGenerateEffect duration={2} filter={false} words={"Spotlight"} />
-          <TextGenerateEffect
-            duration={2}
-            filter={false}
-            words={"which is not overused."}
-          />
+        <h1 className="mt-4 text-2xl sm:text-2xl md:text-6xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+          I'm <FlipWords words={words} />
         </h1>
 
         <p className="mt-6 font-normal text-base max-w-lg">
