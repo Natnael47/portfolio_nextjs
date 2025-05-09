@@ -3,6 +3,7 @@ import { navItems } from "@/data";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+import Projects from "./components/Projects";
 import Services from "./components/Services";
 import TimeLine from "./components/TimeLine";
 
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
+        <Projects />
         <TimeLine />
         <Footer />
       </div>
