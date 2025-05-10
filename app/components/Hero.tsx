@@ -99,7 +99,7 @@ const Hero = () => {
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#9F7AEA_0%,#667EEA_50%,#9F7AEA_100%)]" />
 
               {/* Button content */}
-              <span className="relative flex items-center justify-center gap-2 h-full w-full px-6 text-sm font-semibold rounded-lg bg-white text-black dark:bg-slate-950 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
+              <span className="relative flex items-center justify-center gap-2 h-full w-full px-6 text-md font-semibold rounded-lg bg-white text-black dark:bg-slate-950 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
                 Contact Me
                 <ArrowRight size={18} />
               </span>
@@ -118,7 +118,7 @@ const Hero = () => {
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#9F7AEA_0%,#667EEA_50%,#9F7AEA_100%)]" />
 
               {/* Button content */}
-              <span className="relative flex items-center justify-center gap-2 h-full w-full px-6 text-lg font-semibold rounded-lg bg-white text-black dark:bg-slate-950 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
+              <span className="relative flex items-center justify-center gap-2 h-full w-full px-6 text-md font-semibold rounded-lg bg-white text-black dark:bg-slate-950 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
                 My Resume
                 <Download size={18} />
               </span>

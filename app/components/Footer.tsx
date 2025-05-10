@@ -14,7 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Mail, Send, Twitter } from "lucide-react";
+import { Github, Mail, SendHorizontal, Twitter } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -79,8 +79,8 @@ const Footer = () => {
           <SheetTrigger asChild>
             <button className="relative group inline-flex items-center overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer">
               <span className="flex items-center gap-2 px-6 py-2 text-sm font-medium rounded-md bg-white text-black dark:bg-slate-900 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
-                Send Message
-                <Send size={18} />
+                Let's get in Touch
+                <SendHorizontal size={18} />
               </span>
             </button>
           </SheetTrigger>
