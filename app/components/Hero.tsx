@@ -18,7 +18,7 @@ const Hero = () => {
     "Frontend Developer",
   ];
   return (
-    <div className="pb-28 pt-36 h-screen">
+    <div className="pb-28 pt-36 h-screen" id="home">
       {/* Background Grid + Spotlight */}
       <div>
         <Spotlights

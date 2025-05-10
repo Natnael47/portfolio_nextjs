@@ -12,7 +12,7 @@ const About = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="w-full max-w-7xl px-[5%] py-10 scroll-mt-20"
+      className="w-full max-w-7xl px-[5%] py-10"
       id="about"
     >
       <motion.h4

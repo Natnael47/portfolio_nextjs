@@ -57,7 +57,7 @@ const Services = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="w-full px-[5%] py-10 scroll-mt-20"
+      className="w-full px-[5%] py-10"
       id="services"
     >
       <motion.div className="mb-10">

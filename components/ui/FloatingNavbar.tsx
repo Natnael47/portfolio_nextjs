@@ -21,24 +21,15 @@ export const FloatingNav = ({
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-
-  // set true for the initial state so that nav bar is visible in the hero section
   const [visible, setVisible] = useState(true);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
-
+      let direction = current - scrollYProgress.getPrevious()!;
       if (scrollYProgress.get() < 0.05) {
-        // also set true for the initial state
         setVisible(true);
       } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
+        setVisible(direction < 0);
       }
     }
   });
@@ -46,43 +37,32 @@ export const FloatingNav = ({
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.2,
-        }}
+        initial={{ opacity: 1, y: -100 }}
+        animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
         className={cn(
           "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-10 py-5 rounded-[12px] border bg-white/10 border-black/20 dark:border-white/20 backdrop-blur-[16px] backdrop-saturate-[180%] dark:bg-[rgba(17,25,40,0.75)] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => (
-          <Link
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative dark:text-neutral-50 text-black items-center  flex space-x-1 font-semibold transition-colors duration-300 hover:text-indigo-600 dark:hover:text-indigo-400"
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            {/* add !cursor-pointer */}
-            {/* remove hidden sm:block for the mobile responsive */}
-            <span className=" text-sm cursor-pointer">{navItem.name}</span>
-            {/* Hover underline effect */}
-            <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-indigo-500 transition-all group-hover:w-full rounded-full" />
-          </Link>
-        ))}
-        {/* remove this login btn */}
-        {/* <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button> */}
+        {navItems.map((navItem: any, idx: number) => {
+          const isMobileHidden = ["Home", "Time Line"].includes(navItem.name);
+
+          return (
+            <Link
+              key={`link=${idx}`}
+              href={navItem.link}
+              className={cn(
+                "relative dark:text-neutral-50 text-black items-center flex space-x-1 font-semibold transition-colors duration-300 hover:text-indigo-600 dark:hover:text-indigo-400",
+                isMobileHidden && "hidden sm:flex"
+              )}
+            >
+              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="text-sm cursor-pointer">{navItem.name}</span>
+              <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-indigo-500 transition-all group-hover:w-full rounded-full" />
+            </Link>
+          );
+        })}
       </motion.div>
     </AnimatePresence>
   );
