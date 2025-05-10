@@ -74,6 +74,12 @@
   --color-black-100: #000319;
   --color-tahiti: #3ab7bf;
   --color-bermuda: #78dcca;
+  --color-lightHover: #eef4ff;
+  --color-darkHover: #2c4165;
+  --color-darkTheme: #101828;
+  --shadow-black: 4px 4px 0 #000;
+  --shadow-play: 2px 2px 0 #000;
+  --shadow-white: 4px 4px 0 #fff;
 }
 
 :root {

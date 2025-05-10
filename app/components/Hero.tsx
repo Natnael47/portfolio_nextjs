@@ -1,7 +1,6 @@
 "use client";
 
 import { ContainerTextFlip } from "@/components/ui/container-text-flip";
-import MagicButton from "@/components/ui/MagicButton";
 import { Spotlights } from "@/components/ui/Spotlight";
 import { Spotlight } from "@/components/ui/SpotlightNew";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
@@ -95,12 +94,18 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 1.2 }}
             href="#contact"
           >
-            <MagicButton
-              title="Contact Me"
-              icon={<ArrowRight className="w-5" />}
-              position="right"
-            />
+            <button className="relative group inline-flex items-center justify-center h-12 w-full md:w-60 overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer transform hover:-translate-y-1">
+              {/* Animated spinning border like MagicButton */}
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#9F7AEA_0%,#667EEA_50%,#9F7AEA_100%)]" />
+
+              {/* Button content */}
+              <span className="relative flex items-center justify-center gap-2 h-full w-full px-6 text-sm font-semibold rounded-lg bg-white text-black dark:bg-slate-950 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
+                Contact Me
+                <ArrowRight size={18} />
+              </span>
+            </button>
           </motion.a>
+
           <motion.a
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -108,11 +113,16 @@ const Hero = () => {
             href="/resume.pdf"
             download
           >
-            <MagicButton
-              title="My Resume"
-              icon={<Download className="w-5" />}
-              position="right"
-            />
+            <button className="relative group inline-flex items-center justify-center h-12 w-full md:w-60 overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer transform hover:-translate-y-1">
+              {/* Animated spinning border like MagicButton */}
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#9F7AEA_0%,#667EEA_50%,#9F7AEA_100%)]" />
+
+              {/* Button content */}
+              <span className="relative flex items-center justify-center gap-2 h-full w-full px-6 text-lg font-semibold rounded-lg bg-white text-black dark:bg-slate-950 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
+                My Resume
+                <Download size={18} />
+              </span>
+            </button>
           </motion.a>
         </div>
       </div>
