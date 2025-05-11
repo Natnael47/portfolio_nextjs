@@ -321,9 +321,65 @@ export const words2 = [
 ];
 
 export const toolsData = [
-  "/vscode.png",
-  "/firebase.png",
-  "/mongodb.png",
-  "/figma.png",
-  "/git.png",
+  {
+    image: "/vscode.png",
+    title: "VS Code",
+    description: "Lightweight code editor with powerful extensions.",
+    color: "default",
+  },
+  {
+    image: "/react.svg",
+    title: "React",
+    description: "A JavaScript library for building user interfaces.",
+    color: "default",
+  },
+  {
+    image: "/nextjs.svg",
+    title: "Next.js",
+    description: "React framework with server-side rendering.",
+    color: "default",
+  },
+  {
+    image: "/tailwind-css.svg",
+    title: "Tailwind CSS",
+    description: "Utility-first CSS framework for rapid UI development.",
+    color: "default",
+  },
+  {
+    image: "/prisma.svg",
+    title: "Prisma",
+    description: "Next-gen ORM for Node.js and TypeScript.",
+    color: "default",
+  },
+  {
+    image: "/mongodb.png",
+    title: "MongoDB",
+    description: "Document database with high scalability.",
+    color: "default",
+  },
+  {
+    image: "/figma.png",
+    title: "Figma",
+    description: "Design and collaboration tool for teams.",
+    color: "default",
+  },
+  {
+    image: "/git.png",
+    title: "Git",
+    description: "Version control system to track code changes.",
+    color: "default",
+  },
+  {
+    image: "/mysql.svg",
+    title: "MySQL",
+    description: "Relational database management system.",
+    color: "default",
+  },
+  {
+    image: "/flutter.svg",
+    title: "Flutter",
+    description:
+      "Cross-platform UI toolkit by Google. teterter ertertre ertete ertert reterter ertre",
+    color: "default",
+  },
 ];
