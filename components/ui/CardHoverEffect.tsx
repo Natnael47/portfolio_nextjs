@@ -32,7 +32,7 @@ export const HoverEffect = ({
         >
           <Card
             className={
-              hoveredIndex === idx ? "ring-2 ring-black dark:ring-white" : ""
+              hoveredIndex === idx ? " ring-black dark:ring-white" : ""
             }
           >
             <CardTitle>{item.title}</CardTitle>

@@ -57,37 +57,32 @@ const Hero = () => {
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center mx-auto max-w-5xl md:max-w-2xl lg:max-w-[60vw] w-11/12 h-full text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center mx-auto max-w-6xl w-11/12 text-center pt-20 pb-20">
         <TypewriterEffectSmooth
           words={words2}
-          className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-medium"
+          className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium mb-4"
         />
+
         <motion.h1
-          initial={{
-            opacity: 0,
-          }}
-          whileInView={{
-            opacity: 1,
-          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           className={cn(
-            "relative mb-6 max-w-7xl text-left text-4xl leading-normal font-bold tracking-tight text-zinc-700 md:text-7xl dark:text-zinc-100"
+            "mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-zinc-700 dark:text-zinc-100"
           )}
           layout
         >
-          <div className="inline-block">
+          <span className="inline-block">
             I&apos;m <ContainerTextFlip words={words} />
-            {/* <Blips /> */}
-          </div>
+          </span>
         </motion.h1>
 
-        <p className="mt-6 font-normal text-base max-w-lg">
+        <p className="mt-4 mb-6 text-sm sm:text-base md:text-lg max-w-md sm:max-w-lg md:max-w-xl text-center text-muted-foreground">
           A subtle yet effective spotlight effect, because the previous version
           is used a bit too much these days.
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-          <ModeToggle />
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <motion.a
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -95,10 +90,7 @@ const Hero = () => {
             href="#contact"
           >
             <button className="relative group inline-flex items-center justify-center h-12 w-full md:w-60 overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer transform hover:-translate-y-1">
-              {/* Animated spinning border like MagicButton */}
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#9F7AEA_0%,#667EEA_50%,#9F7AEA_100%)]" />
-
-              {/* Button content */}
               <span className="relative flex items-center justify-center gap-2 h-full w-full px-6 text-md font-semibold rounded-lg bg-white text-black dark:bg-slate-950 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
                 Contact Me
                 <ArrowRight size={18} />
@@ -114,16 +106,17 @@ const Hero = () => {
             download
           >
             <button className="relative group inline-flex items-center justify-center h-12 w-full md:w-60 overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer transform hover:-translate-y-1">
-              {/* Animated spinning border like MagicButton */}
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#9F7AEA_0%,#667EEA_50%,#9F7AEA_100%)]" />
-
-              {/* Button content */}
               <span className="relative flex items-center justify-center gap-2 h-full w-full px-6 text-md font-semibold rounded-lg bg-white text-black dark:bg-slate-950 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
                 My Resume
                 <Download size={18} />
               </span>
             </button>
           </motion.a>
+        </div>
+        {/* Theme Toggle */}
+        <div className="mt-6">
+          <ModeToggle />
         </div>
       </div>
     </div>

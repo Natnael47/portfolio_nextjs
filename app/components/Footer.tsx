@@ -151,6 +151,7 @@ const Footer = () => {
         <p className="md:text-base text-sm text-white-300">
           © 2024 Natnael Mahteme. All rights reserved.
         </p>
+
         <div className="flex items-center gap-4">
           {[
             {
