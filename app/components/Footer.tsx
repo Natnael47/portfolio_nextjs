@@ -15,37 +15,44 @@ import {
 } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Mail, SendHorizontal, Twitter } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
 import { toast } from "sonner";
 
 const Footer = () => {
-  const [result, setResult] = useState("");
-
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setResult("Sending...");
-    const formData = new FormData(event.currentTarget);
 
+    const formData = new FormData(event.currentTarget);
     formData.append("access_key", "502f6be7-fd08-43db-b36e-c374f5726fa6");
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      toast.success("Message sent successfully!", {
-        description: "I'll get back to you soon.",
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       });
-      event.currentTarget.reset();
-      setResult("");
-    } else {
-      toast.error("Something went wrong", {
-        description: data.message,
-      });
-      setResult(data.message);
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("✅ Message sent!", {
+          description: data.message || "I'll get back to you soon.",
+        });
+        event.currentTarget.reset();
+      } else {
+        toast.error("❌ Failed to send", {
+          description: data.message || "Unknown error occurred.",
+        });
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error("❌ Error occurred", {
+          description: error.message || "Something went wrong.",
+        });
+      } else {
+        toast.error("❌ Unknown error occurred", {
+          description: "Something went wrong.",
+        });
+      }
     }
   };
 
@@ -56,7 +63,7 @@ const Footer = () => {
     >
       {/* Background grid */}
       <div className="absolute inset-0 -z-10">
-        <img
+        <Image
           src="/footer-grid.svg"
           alt="background grid"
           className="w-full h-full object-cover opacity-40 dark:opacity-60"
@@ -79,7 +86,7 @@ const Footer = () => {
           <SheetTrigger asChild>
             <button className="relative group inline-flex items-center overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer">
               <span className="flex items-center gap-2 px-6 py-2 text-sm font-medium rounded-md bg-white text-black dark:bg-slate-900 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
-                Let's get in Touch
+                Let&apos;s get in Touch
                 <SendHorizontal size={18} />
               </span>
             </button>
@@ -93,8 +100,8 @@ const Footer = () => {
                 Send a Message
               </SheetTitle>
               <SheetDescription>
-                I'd love to hear from you! Fill out the form below and I’ll be
-                in touch.
+                I&apos;d love to hear from you! Fill out the form below and
+                I&apos;ll be in touch.
               </SheetDescription>
             </SheetHeader>
             <form className="grid gap-6 py-6" onSubmit={onSubmit}>

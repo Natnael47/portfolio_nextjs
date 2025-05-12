@@ -75,7 +75,7 @@ const Hero = () => {
           layout
         >
           <div className="inline-block">
-            I'm <ContainerTextFlip words={words} />
+            I&apos;m <ContainerTextFlip words={words} />
             {/* <Blips /> */}
           </div>
         </motion.h1>

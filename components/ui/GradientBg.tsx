@@ -35,7 +35,7 @@ export const BackgroundGradientAnimation = ({
 }) => {
   const interactiveRef = useRef<HTMLDivElement>(null);
 
-  const [curX, setCurX] = useState(0);
+  const curX = useRef(0);
   const [curY, setCurY] = useState(0);
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
@@ -56,22 +56,35 @@ export const BackgroundGradientAnimation = ({
     document.body.style.setProperty("--pointer-color", pointerColor);
     document.body.style.setProperty("--size", size);
     document.body.style.setProperty("--blending-value", blendingValue);
-  }, []);
+  }, [
+    gradientBackgroundStart,
+    gradientBackgroundEnd,
+    firstColor,
+    secondColor,
+    thirdColor,
+    fourthColor,
+    fifthColor,
+    pointerColor,
+    size,
+    blendingValue,
+  ]);
 
   useEffect(() => {
     function move() {
-      if (!interactiveRef.current) {
-        return;
-      }
-      setCurX(curX + (tgX - curX) / 20);
-      setCurY(curY + (tgY - curY) / 20);
-      interactiveRef.current.style.transform = `translate(${Math.round(
-        curX
-      )}px, ${Math.round(curY)}px)`;
-    }
+      if (!interactiveRef.current) return;
 
+      curX.current += (tgX - curX.current) / 20;
+      interactiveRef.current!.style.transform = `translate(${Math.round(
+        curX.current
+      )}px, ${Math.round(curY)}px)`;
+
+      setCurY((prevY) => {
+        const newY = prevY + (tgY - prevY) / 20;
+        return newY;
+      });
+    }
     move();
-  }, [tgX, tgY]);
+  }, [tgX, tgY, curY]); // Add curY to the dependency array
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (interactiveRef.current) {

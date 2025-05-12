@@ -3,6 +3,7 @@ import { PinContainer } from "@/components/ui/Pin";
 import { companies, projects } from "@/data";
 import { MoveRightIcon } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
 import React from "react";
 
 const Projects = () => {
@@ -50,9 +51,9 @@ const Projects = () => {
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <img src="/bg.png" alt="bgimg" />
+                  <Image src="/bg.png" alt="bgimg" />
                 </div>
-                <img
+                <Image
                   src={item.img}
                   alt="cover"
                   className="z-10 absolute bottom-0"
@@ -83,7 +84,7 @@ const Projects = () => {
                         transform: `translateX(-${5 * index + 2}px)`,
                       }}
                     >
-                      <img src={icon} alt="icon5" className="p-2" />
+                      <Image src={icon} alt="icon5" className="p-2" />
                     </div>
                   ))}
                 </div>
@@ -103,12 +104,12 @@ const Projects = () => {
         {companies.map((company) => (
           <React.Fragment key={company.id}>
             <div className="flex md:max-w-60 max-w-32 gap-2">
-              <img
+              <Image
                 src={company.img}
                 alt={company.name}
                 className="md:w-10 w-5"
               />
-              <img
+              <Image
                 src={company.nameImg}
                 alt={company.name}
                 width={company.id === 4 || company.id === 5 ? 100 : 150}

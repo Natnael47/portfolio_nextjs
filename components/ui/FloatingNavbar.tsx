@@ -25,7 +25,7 @@ export const FloatingNav = ({
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
-      let direction = current - scrollYProgress.getPrevious()!;
+      const direction = current - scrollYProgress.getPrevious()!;
       if (scrollYProgress.get() < 0.05) {
         setVisible(true);
       } else {
@@ -45,7 +45,7 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.map((navItem: any, idx: number) => {
+        {navItems.map((navItem, idx) => {
           const isMobileHidden = ["Home", "Time Line"].includes(navItem.name);
 
           return (

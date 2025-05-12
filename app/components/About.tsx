@@ -48,7 +48,7 @@ const About = () => {
           className="w-64 sm:w-80 rounded-3xl max-w-none"
         >
           <BackgroundGradient className="rounded-[22px] max-w-sm p-2 sm:p-2 bg-white dark:bg-zinc-900">
-            <img
+            <Image
               src={`/about-img.webp`}
               alt="jordans"
               height="400"
