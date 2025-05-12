@@ -64,6 +64,8 @@ const Footer = () => {
       {/* Background grid */}
       <div className="absolute inset-0 -z-10">
         <Image
+          width={800}
+          height={600}
           src="/footer-grid.svg"
           alt="background grid"
           className="w-full h-full object-cover opacity-40 dark:opacity-60"

@@ -51,10 +51,17 @@ const Projects = () => {
                   className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <Image src="/bg.png" alt="bgimg" />
+                  <Image
+                    src="/bg.png"
+                    width={800}
+                    height={600}
+                    alt="Background"
+                  />
                 </div>
                 <Image
                   src={item.img}
+                  width={800}
+                  height={600}
                   alt="cover"
                   className="z-10 absolute bottom-0"
                 />
@@ -84,7 +91,13 @@ const Projects = () => {
                         transform: `translateX(-${5 * index + 2}px)`,
                       }}
                     >
-                      <Image src={icon} alt="icon5" className="p-2" />
+                      <Image
+                        src={icon}
+                        alt="icon5"
+                        width={800}
+                        height={600}
+                        className="p-2"
+                      />
                     </div>
                   ))}
                 </div>
@@ -107,12 +120,15 @@ const Projects = () => {
               <Image
                 src={company.img}
                 alt={company.name}
+                width={10}
+                height={600}
                 className="md:w-10 w-5"
               />
               <Image
                 src={company.nameImg}
                 alt={company.name}
                 width={company.id === 4 || company.id === 5 ? 100 : 150}
+                height={600}
                 className="md:w-24 w-20"
               />
             </div>
