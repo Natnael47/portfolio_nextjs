@@ -278,10 +278,10 @@ export const images = [
 
 export const aboutMe = [
   {
-    title: "Stripe",
-    description:
-      "A technology company that builds economic infrastructure for the internet.",
+    title: "Languages",
+    description: "HTML, CSS, JavaScript React Js, Next Js",
     link: "https://stripe.com",
+    icons: "/code-icon.png",
   },
   {
     title: "Netflix",

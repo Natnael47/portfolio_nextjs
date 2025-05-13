@@ -86,7 +86,7 @@ const Hero = () => {
           <motion.a
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
+            transition={{ duration: 0.6, delay: 1 }}
             href="#contact"
           >
             <button className="relative group inline-flex items-center justify-center h-12 w-full md:w-60 overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer transform hover:-translate-y-1">
@@ -101,7 +101,7 @@ const Hero = () => {
           <motion.a
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.3 }}
+            transition={{ duration: 0.6, delay: 1 }}
             href="/resume.pdf"
             download
           >
@@ -115,9 +115,14 @@ const Hero = () => {
           </motion.a>
         </div>
         {/* Theme Toggle */}
-        <div className="mt-6">
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="mt-6"
+        >
           <ModeToggle />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
@@ -16,13 +15,17 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Mail, SendHorizontal, Twitter } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 import { toast } from "sonner";
 
 const Footer = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget; // ✅ capture the reference BEFORE any async calls
+    const formData = new FormData(form);
     formData.append("access_key", "502f6be7-fd08-43db-b36e-c374f5726fa6");
 
     try {
@@ -34,22 +37,24 @@ const Footer = () => {
       const data = await response.json();
 
       if (data.success) {
-        toast.success("✅ Message sent!", {
+        toast.success("Message sent!", {
           description: data.message || "I'll get back to you soon.",
         });
-        event.currentTarget.reset();
+
+        form.reset(); // ✅ now this is safe!
+        setIsOpen(false);
       } else {
-        toast.error("❌ Failed to send", {
+        toast.error("Failed to send", {
           description: data.message || "Unknown error occurred.",
         });
       }
     } catch (error: unknown) {
       if (error instanceof Error) {
-        toast.error("❌ Error occurred", {
+        toast.error("Error occurred", {
           description: error.message || "Something went wrong.",
         });
       } else {
-        toast.error("❌ Unknown error occurred", {
+        toast.error("Unknown error occurred", {
           description: "Something went wrong.",
         });
       }
@@ -84,7 +89,7 @@ const Footer = () => {
           achieve your goals.
         </p>
 
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <button className="relative group inline-flex items-center overflow-hidden rounded-lg p-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 hover:from-blue-500 hover:to-indigo-500 transition-all duration-300 cursor-pointer">
               <span className="flex items-center gap-2 px-6 py-2 text-sm font-medium rounded-md bg-white text-black dark:bg-slate-900 dark:text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white">
@@ -132,14 +137,12 @@ const Footer = () => {
                 />
               </div>
               <SheetFooter>
-                <SheetClose asChild>
-                  <Button
-                    type="submit"
-                    className="w-full sm:w-auto hover:bg-gray-400 cursor-pointer"
-                  >
-                    Submit
-                  </Button>
-                </SheetClose>
+                <Button
+                  type="submit"
+                  className="w-full sm:w-auto hover:bg-gray-400 cursor-pointer"
+                >
+                  Submit
+                </Button>
               </SheetFooter>
             </form>
           </SheetContent>
