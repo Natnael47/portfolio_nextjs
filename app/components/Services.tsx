@@ -79,7 +79,7 @@ const Services = () => {
       className="w-full px-[5%] py-10"
       id="services"
     >
-      <motion.div className="mb-10">
+      <motion.div className="mb-5">
         <motion.h4
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,15 +100,16 @@ const Services = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="text-center max-w-2xl mx-auto mt-5 mb-12"
+          className="text-center max-w-4xl mx-auto mt-5"
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi maiores
           sapiente cumque dolorum earum sunt magni porro tempore perspiciatis
           animi, quas
         </motion.p>
       </motion.div>
-
-      <StickyScroll content={content} />
+      <div>
+        <StickyScroll content={content} />
+      </div>
     </motion.div>
   );
 };

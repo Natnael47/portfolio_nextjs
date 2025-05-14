@@ -57,7 +57,7 @@ export const StickyScroll = ({
   return (
     <BackgroundGradient className="rounded-md h-[32rem]">
       <motion.div
-        className="relative flex h-[32rem] justify-center space-x-10 overflow-y-auto bg-white dark:bg-black-100 rounded-3xl p-10"
+        className="relative flex h-[32rem] justify-center space-x-10 overflow-y-auto bg-white dark:bg-black-100 rounded-3xl p-7"
         ref={ref}
       >
         <div className="div relative flex items-start px-4">
