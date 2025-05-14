@@ -35,7 +35,7 @@ const About = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="w-full max-w-7xl px-[5%] py-10"
+      className="w-full max-w-7xl px-[5%] py-8"
       id="about"
     >
       <motion.h4
@@ -87,7 +87,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="flex-1"
         >
-          <p className="mb-5 max-w-2xl">
+          <p className="mb-5 max-w-3xl">
             Hi, I&apos;m <strong>Natnael Mahteme</strong>, a Computer Science
             graduate with a passion for technology. I specialize in web design,
             mobile app development, and graphic design, creating user-focused
@@ -110,7 +110,7 @@ const About = () => {
           <motion.ul
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.5 }}
+            transition={{ duration: 0.6, delay: 1 }}
             className="flex flex-wrap gap-3 sm:gap-5"
           >
             {toolsData.map((tool, index) => (
