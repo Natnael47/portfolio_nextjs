@@ -1,6 +1,6 @@
 "use client";
 
-import { ContainerTextFlip } from "@/components/ui/container-text-flip";
+import RotatingText from "@/components/ui/RotatingText";
 import { Spotlights } from "@/components/ui/Spotlight";
 import { Spotlight } from "@/components/ui/SpotlightNew";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
@@ -57,22 +57,34 @@ const Hero = () => {
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center mx-auto max-w-6xl w-11/12 text-center pt-20 pb-20">
+      <div className="relative z-10 flex flex-col items-center justify-center mx-auto max-w-6xl text-center pt-20 pb-20">
         <TypewriterEffectSmooth
           words={words2}
-          className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium mb-4"
+          className="text-lg sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-medium mb-4"
         />
 
         <motion.h1
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className={cn(
-            "mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-zinc-700 dark:text-zinc-100"
+            "mb-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-zinc-700 dark:text-zinc-100"
           )}
           layout
         >
-          <span className="inline-block">
-            I&apos;m <ContainerTextFlip words={words} />
+          <span className="inline-flex items-center gap-2">
+            I&apos;m
+            <RotatingText
+              texts={words}
+              mainClassName="px-3 dark:bg-gradient-to-r dark:from-purple-600 dark:via-blue-600 dark:to-purple-700 bg-gradient-to-r from-indigo-800 via-purple-700 to-blue-700 text-white overflow-hidden py-2 leading-none justify-center rounded-lg"
+              staggerFrom={"last"}
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-1 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={4000}
+            />
           </span>
         </motion.h1>
 
