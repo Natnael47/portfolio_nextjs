@@ -2,12 +2,34 @@
 
 import { BackgroundGradient } from "@/components/background-gradient";
 import { HoverEffect } from "@/components/ui/CardHoverEffect";
-import { aboutMe, toolsData } from "@/data";
+import { toolsData } from "@/data";
 import { Popover, PopoverContent, PopoverTrigger } from "@heroui/popover";
+import { BriefcaseBusiness, CodeXml, GraduationCap } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 
 const About = () => {
+  const aboutMe = [
+    {
+      title: "Languages",
+      description:
+        "Proficient in HTML, CSS, JavaScript, React.js, and Next.js for building responsive and dynamic web applications.",
+      icon: <CodeXml size={40} />,
+    },
+    {
+      title: "Education",
+      description:
+        "Completed B.Tech in Computer Science, focusing on software engineering, web development, and modern programming practices.",
+      icon: <GraduationCap size={40} />,
+    },
+    {
+      title: "Projects",
+      description:
+        "Developed 5+ full-stack projects including dashboards, e-commerce platforms, and custom web apps for real-world use cases.",
+      icon: <BriefcaseBusiness size={40} />,
+    },
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -66,10 +88,10 @@ const About = () => {
           className="flex-1"
         >
           <p className="mb-5 max-w-2xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-            maiores sapiente cumque dolorum earum sunt magni porro tempore
-            perspiciatis animi, quas, delectus facilis nemo molestiae nulla
-            vitae? Consequuntur, minima eos?
+            Hi, I&apos;m <strong>Natnael Mahteme</strong>, a Computer Science
+            graduate with a passion for technology. I specialize in web design,
+            mobile app development, and graphic design, creating user-focused
+            digital experiences.
           </p>
 
           <motion.div whileInView={{ scale: 1.05 }}>

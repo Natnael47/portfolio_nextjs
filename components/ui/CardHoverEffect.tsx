@@ -9,7 +9,8 @@ export const HoverEffect = ({
   items: {
     title: string;
     description: string;
-    link: string;
+    link?: string;
+    icon: React.ReactNode;
   }[];
   className?: string;
 }) => {
@@ -35,6 +36,7 @@ export const HoverEffect = ({
               hoveredIndex === idx ? " ring-black dark:ring-white" : ""
             }
           >
+            {item.icon}
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>

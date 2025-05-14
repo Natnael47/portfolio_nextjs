@@ -276,27 +276,6 @@ export const images = [
   "https://assets.aceternity.com/world-map.webp",
 ];
 
-export const aboutMe = [
-  {
-    title: "Languages",
-    description: "HTML, CSS, JavaScript React Js, Next Js",
-    link: "https://stripe.com",
-    icons: "/code-icon.png",
-  },
-  {
-    title: "Netflix",
-    description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
-  },
-  {
-    title: "Google",
-    description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
-  },
-];
-
 export const words2 = [
   {
     text: "Hello,",
