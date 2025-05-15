@@ -219,8 +219,8 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
             key={currentTextIndex}
             className={cn(
               splitBy === "lines"
-                ? "flex flex-col w-full"
-                : "flex flex-wrap whitespace-pre-wrap relative"
+                ? "flex flex-col w-full items-start text-left"
+                : "flex flex-wrap whitespace-pre-wrap relative items-start text-left"
             )}
             layout
             aria-hidden="true"
