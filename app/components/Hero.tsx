@@ -38,8 +38,11 @@ const Hero = () => {
           gradientThird="radial-gradient(50% 50% at 50% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 80%, transparent 100%)"
         />
 
-        {/* Grid background */}
-        <div
+        {/* Grid background with fade-in */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
           className={cn(
             "absolute inset-0",
             "[background-size:90px_90px]",
@@ -48,11 +51,12 @@ const Hero = () => {
           )}
         />
 
-        {/* Fullscreen Fade Mask (from top visible → bottom transparent) */}
-        <div
-          // chnage the bg to bg-black-100, so it matches the bg color and will blend in
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+        {/* Fullscreen Fade Mask with fade-in */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2.5, ease: "easeInOut" }}
+          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
         />
       </div>
 
