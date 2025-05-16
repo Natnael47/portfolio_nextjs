@@ -152,7 +152,7 @@ const Footer = () => {
       {/* Footer bottom */}
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center gap-6 px-4">
         <p className="md:text-base text-sm text-white-300">
-          © 2024 Natnael Mahteme. All rights reserved.
+          Natnael Mahteme, © 2024
         </p>
 
         <div className="flex items-center gap-4">
