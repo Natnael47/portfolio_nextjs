@@ -305,11 +305,11 @@ export const words2 = [
   },
   {
     text: "Natnael",
-    className: "text-blue-500 dark:text-blue-500",
+    className: "text-[#225CFC] dark:text-[#9023FB] ",
   },
   {
     text: "Mahteme.",
-    className: "text-blue-500 dark:text-blue-500",
+    className: "text-[#9023FB] dark:text-[#225CFC]",
   },
 ];
 

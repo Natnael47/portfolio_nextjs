@@ -72,7 +72,7 @@ const Hero = () => {
         {!isMobile ? (
           <TypewriterEffectSmooth
             words={words2}
-            className="text-3xl mb-2 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium "
+            className="text-3xl mb-2 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl"
           />
         ) : (
           <div className="flex flex-col items-start text-left ml-6 w-full max-w-[640px]">

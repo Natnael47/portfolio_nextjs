@@ -6,6 +6,7 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Loading from "./components/Loading";
+import Myservices from "./components/MyServices";
 import Projects from "./components/Projects";
 import Services from "./components/Services";
 import TimeLine from "./components/TimeLine";
@@ -30,6 +31,7 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
+        <Myservices />
         <Projects />
         <TimeLine />
         <Footer />

@@ -12,7 +12,7 @@ const Services = () => {
       content: (
         <div className="flex h-full w-full items-center justify-center text-white">
           <Image
-            src="/web-design.jpg"
+            src="/code.jpg"
             width={300}
             height={300}
             className="h-full w-full object-cover"
@@ -44,7 +44,7 @@ const Services = () => {
       content: (
         <div className="flex h-full w-full items-center justify-center text-white">
           <Image
-            src="/ui-ux.jpg"
+            src="/UI.jpg"
             width={300}
             height={300}
             className="h-full w-full object-cover"
@@ -60,7 +60,7 @@ const Services = () => {
       content: (
         <div className="flex h-full w-full items-center justify-center text-white">
           <Image
-            src="/graphics-design.jpg"
+            src="/Design.jpg"
             width={300}
             height={300}
             className="h-full w-full object-cover"
