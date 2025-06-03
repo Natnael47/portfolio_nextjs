@@ -2,6 +2,7 @@
 
 import { useIsMobile } from "@/components/hooks/useIsMobile";
 import { ColourfulText } from "@/components/ui/colourful-text";
+import Magnet from "@/components/ui/Magnet";
 import RotatingText from "@/components/ui/RotatingText";
 import SplitText from "@/components/ui/SplitText";
 import { Spotlights } from "@/components/ui/Spotlight";
@@ -147,9 +148,9 @@ const Hero = () => {
           </span>
         </motion.h1>
 
-        <p className="mt-4 mb-6 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-md md:max-w-xl text-center text-zinc-700 dark:text-zinc-300">
-          a creative mind at work passionate about coding and design. blending
-          logic and design to solve real problems.
+        <p className="mt-4 mb-6 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-md md:max-w-xl text-center">
+          A creative mind passionate about coding and design - blending logic
+          and aesthetics to solve real-world problems.
         </p>
 
         {/* Buttons */}
@@ -193,7 +194,9 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 1 }}
           className="mt-6"
         >
-          <ModeToggle />
+          <Magnet padding={70} disabled={false} magnetStrength={10}>
+            <ModeToggle />
+          </Magnet>
         </motion.div>
       </div>
     </div>
