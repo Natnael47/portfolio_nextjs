@@ -1,12 +1,16 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { PinContainer } from "@/components/ui/Pin";
 import { companies, projects } from "@/data";
-import { MoveRightIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, MoveRightIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, 6);
+
   return (
     <div className="py-10" id="projects">
       <motion.h4
@@ -29,15 +33,15 @@ const Projects = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="text-center max-w-2xl mx-auto mt-5 mb-12"
+        className="text-center max-w-2xl mx-auto mt-5 mb-5"
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi maiores
         sapiente cumque dolorum earum sunt magni porro tempore perspiciatis
         animi, quas
       </motion.p>
 
-      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-4">
-        {projects.map((item) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
+        {visibleProjects.map((item) => (
           <div
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
             key={item.id}
@@ -49,19 +53,12 @@ const Projects = () => {
                   style={{ backgroundColor: "#13162D" }}
                 >
                   <Image
-                    src="/bg.png"
-                    width={800}
-                    height={600}
-                    alt="Background"
+                    src={item.img}
+                    fill
+                    alt="cover"
+                    className="object-cover w-full h-full"
                   />
                 </div>
-                <Image
-                  src={item.img}
-                  width={800}
-                  height={600}
-                  alt="cover"
-                  className="z-10 absolute bottom-0"
-                />
               </div>
 
               <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
@@ -110,6 +107,19 @@ const Projects = () => {
           </div>
         ))}
       </div>
+      {projects.length > 6 && (
+        <div className="flex justify-center mb-5">
+          <Button
+            onClick={() => setShowAll(!showAll)}
+            className="px-6 py-2 dark:text-white text-black rounded-full hover:text-blue-500 dark:hover:text-blue-500 transition"
+            variant={"link"}
+          >
+            {showAll ? <ArrowLeft /> : ""}
+            {showAll ? "Show Less" : "Show More"}
+            {showAll ? "" : <ArrowRight />}
+          </Button>
+        </div>
+      )}
       <div className="flex flex-wrap items-center justify-center mt-3 gap-4 md:gap-16 max-lg:mt-10">
         {companies.map((company) => (
           <React.Fragment key={company.id}>

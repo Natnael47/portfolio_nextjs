@@ -142,6 +142,36 @@ export const projects = [
     ],
     link: "/ui.apple.com",
   },
+  {
+    id: 5,
+    mainTitle: "/ui.natty.com",
+    hrefLink: "https://twitter.com/mannupaaji",
+    title: "3D Solar System Planets to Explore",
+    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    img: "/pro-1-1.png",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    link: "/ui.earth.com",
+  },
+  {
+    id: 6,
+    mainTitle: "/ui.aceternity.com",
+    hrefLink: "https://twitter.com/mannupaaji",
+    title: "Yoom - Video Conferencing App",
+    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    img: "/pro-2-1.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    link: "/ui.yoom.com",
+  },
+  {
+    id: 7,
+    mainTitle: "/ui.aceternity.com",
+    hrefLink: "https://twitter.com/mannupaaji",
+    title: "AI Image SaaS - Canva Application",
+    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+    img: "/p3.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    link: "/ui.aiimg.com",
+  },
 ];
 
 export const testimonials = [
@@ -293,23 +323,23 @@ export const images = [
 export const words2 = [
   {
     text: "Hello,",
+    className: "text-5xl",
   },
   {
     text: "My",
+    className: "text-5xl",
   },
   {
     text: "Name",
+    className: "text-5xl",
   },
   {
     text: "Is",
+    className: "text-5xl",
   },
   {
     text: "Natnael",
-    className: "text-[#225CFC] dark:text-[#C084FC] ",
-  },
-  {
-    text: "Mahteme.",
-    className: "text-[#9023FB] dark:text-[#3B82F6]",
+    className: "text-[#225CFC] dark:text-[#C084FC] text-5xl",
   },
 ];
 
@@ -374,5 +404,24 @@ export const toolsData = [
     description:
       "Cross-platform UI toolkit by Google. teterter ertertre ertete ertert reterter ertre",
     color: "default",
+  },
+];
+
+export const services = [
+  {
+    title: "Full-Stack Developer",
+    icon: "/web.png",
+  },
+  {
+    title: "Frontend Developer",
+    icon: "/mobile.png",
+  },
+  {
+    title: "Backend Developer",
+    icon: "/backend.png",
+  },
+  {
+    title: "Ui UX Designer",
+    icon: "/creator.png",
   },
 ];
