@@ -1,5 +1,6 @@
 "use client";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import ScrollVelocityImages from "@/components/Velocity";
 import { technologies } from "@/data";
 import { motion } from "framer-motion";
 
@@ -7,31 +8,31 @@ const Myservices = () => {
   const testimonials = [
     {
       quote:
-        "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-      name: "Sarah Chen",
-      designation: "Product Manager at TechFlow",
+        "I build fast, responsive, and modern websites using the latest technologies. From simple portfolios to dynamic web applications, I ensure performance, scalability, and clean code.",
+      name: "Web Development",
+      designation: "Front-End & Back-End Solutions",
       src: "/computer.png",
     },
     {
       quote:
-        "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
-      name: "Michael Rodriguez",
-      designation: "CTO at InnovateSphere",
+        "I design and develop user-friendly mobile apps for both Android and iOS. My focus is on smooth performance, intuitive interfaces, and consistency across all devices.",
+      name: "Mobile App Design & Development",
+      designation: "Cross-Platform Mobile Solutions",
       src: "/apps.png",
     },
     {
       quote:
-        "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
-      name: "Emily Watson",
-      designation: "Operations Director at CloudScale",
+        "I create seamless user experiences through thoughtful design. From wireframes to final visuals, I focus on clarity, usability, and visual appeal that enhances engagement.",
+      name: "UI/UX Design",
+      designation: "User-Centered Interface Design",
       src: "/webdes.png",
     },
     {
       quote:
-        "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
-      name: "James Kim",
-      designation: "Engineering Lead at DataPro",
-      src: "/UIUX.png",
+        "I craft visually compelling graphics including logos, social media content, marketing materials, and more—ensuring your brand stands out with a cohesive and professional look.",
+      name: "Graphics Design",
+      designation: "Creative Visual Identity",
+      src: "/uiux.png",
     },
   ];
 
@@ -40,10 +41,10 @@ const Myservices = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="w-full px-[5%] py-10"
+      className="w-full py-10"
       id="services"
     >
-      <motion.div className="mb-5">
+      <motion.div>
         <motion.h4
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,24 +67,25 @@ const Myservices = () => {
           transition={{ duration: 0.5, delay: 0.7 }}
           className="text-center max-w-4xl mx-auto mt-5"
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi maiores
-          sapiente cumque dolorum earum sunt magni porro tempore perspiciatis
-          animi, quas
+          I offer end-to-end digital solutions — from responsive websites and
+          mobile apps to sleek UI/UX and visual design. <br />
+          My goal is to elevate your brand with modern, functional, and
+          user-focused experiences.
         </motion.p>
       </motion.div>
-      <div>
+      <div className="mb-20">
         <AnimatedTestimonials testimonials={testimonials} />
       </div>
-      <div className="tech-icons-wrapper flex flex-row flex-wrap justify-center gap-10">
-        {technologies.map((technology) => (
-          <div className="w-28 h-28" key={technology.name}>
-            <img
-              src={technology.icon}
-              alt={technology.name}
-              className="tech-icon w-full h-full object-contain"
-            />
-          </div>
-        ))}
+      <div className="relative w-full my-12">
+        <div className="w-screen left-1/2 -translate-x-1/2 relative overflow-hidden">
+          <ScrollVelocityImages
+            images={technologies}
+            velocity={100}
+            className="items-center"
+            numCopies={5}
+            imageClassName="w-28 h-28 object-contain"
+          />
+        </div>
       </div>
     </motion.div>
   );

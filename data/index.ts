@@ -421,6 +421,10 @@ export const technologies = [
     icon: "/tech/javascript.png",
   },
   {
+    name: "TypeScript",
+    icon: "/tech/typescript.png",
+  },
+  {
     name: "React JS",
     icon: "/tech/reactjs.png",
   },

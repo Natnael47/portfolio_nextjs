@@ -3,6 +3,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { BackgroundGradient } from "../background-gradient";
 import { Button } from "./button";
 
 type Testimonial = {
@@ -41,8 +42,8 @@ export const AnimatedTestimonials = ({
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
   return (
-    <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
-      <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
+    <div className="mx-auto max-w-sm px-4 py-10 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
+      <div className="relative grid grid-cols-1 gap-10 md:gap-16 md:grid-cols-2">
         {/* Image container */}
         <div>
           <div className="relative h-80 w-full">
@@ -77,14 +78,18 @@ export const AnimatedTestimonials = ({
                       : "opacity-0 z-0 pointer-events-none invisible"
                   }`}
                 >
-                  <img
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    width={300}
-                    height={300}
-                    draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
-                  />
+                  <BackgroundGradient className="rounded-3xl p-[2px]">
+                    <div className="bg-[#FFFFFF] dark:bg-black-100 rounded-3xl overflow-hidden">
+                      <img
+                        src={testimonial.src}
+                        alt={testimonial.name}
+                        width={300}
+                        height={300}
+                        draggable={false}
+                        className="h-full w-full object-cover object-center"
+                      />
+                    </div>
+                  </BackgroundGradient>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -92,7 +97,7 @@ export const AnimatedTestimonials = ({
         </div>
 
         {/* Text content */}
-        <div className="flex flex-col justify-between py-4">
+        <div className="flex flex-col justify-between py-2">
           <motion.div
             key={active}
             initial={{ y: 20, opacity: 0 }}

@@ -8,7 +8,6 @@ import Hero from "./components/Hero";
 import Loading from "./components/Loading";
 import Myservices from "./components/MyServices";
 import Projects from "./components/Projects";
-import Services from "./components/Services";
 import TimeLine from "./components/TimeLine";
 
 export default function Home() {
@@ -30,7 +29,7 @@ export default function Home() {
         <FloatingNav navItems={navItems} />
         <Hero />
         <About />
-        <Services />
+
         <Myservices />
         <Projects />
         <TimeLine />
