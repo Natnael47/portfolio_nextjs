@@ -1,5 +1,6 @@
 "use client";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { technologies } from "@/data";
 import { motion } from "framer-motion";
 
 const Myservices = () => {
@@ -9,28 +10,28 @@ const Myservices = () => {
         "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
       name: "Sarah Chen",
       designation: "Product Manager at TechFlow",
-      src: "/mobile-app.png",
+      src: "/computer.png",
     },
     {
       quote:
         "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
       name: "Michael Rodriguez",
       designation: "CTO at InnovateSphere",
-      src: "/Design.jpg",
+      src: "/apps.png",
     },
     {
       quote:
         "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
       name: "Emily Watson",
       designation: "Operations Director at CloudScale",
-      src: "/UI.jpg",
+      src: "/webdes.png",
     },
     {
       quote:
         "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
       name: "James Kim",
       designation: "Engineering Lead at DataPro",
-      src: "/code.jpg",
+      src: "/UIUX.png",
     },
   ];
 
@@ -72,6 +73,17 @@ const Myservices = () => {
       </motion.div>
       <div>
         <AnimatedTestimonials testimonials={testimonials} />
+      </div>
+      <div className="tech-icons-wrapper flex flex-row flex-wrap justify-center gap-10">
+        {technologies.map((technology) => (
+          <div className="w-28 h-28" key={technology.name}>
+            <img
+              src={technology.icon}
+              alt={technology.name}
+              className="tech-icon w-full h-full object-contain"
+            />
+          </div>
+        ))}
       </div>
     </motion.div>
   );

@@ -407,21 +407,75 @@ export const toolsData = [
   },
 ];
 
-export const services = [
+export const technologies = [
   {
-    title: "Full-Stack Developer",
-    icon: "/web.png",
+    name: "HTML 5",
+    icon: "/tech/html.png",
   },
   {
-    title: "Frontend Developer",
-    icon: "/mobile.png",
+    name: "CSS 3",
+    icon: "/tech/css.png",
   },
   {
-    title: "Backend Developer",
-    icon: "/backend.png",
+    name: "JavaScript",
+    icon: "/tech/javascript.png",
   },
   {
-    title: "Ui UX Designer",
-    icon: "/creator.png",
+    name: "React JS",
+    icon: "/tech/reactjs.png",
+  },
+  {
+    name: "gsap",
+    icon: "/tech/gsap.png",
+  },
+  {
+    name: "framer",
+    icon: "/tech/framer.png",
+  },
+
+  {
+    name: "Three JS",
+    icon: "/tech/threejs.svg",
+  },
+  {
+    name: "figma",
+    icon: "/tech/figma.png",
+  },
+  {
+    name: "Redux Toolkit",
+    icon: "/tech/redux.png",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: "/tech/tailwind.png",
+  },
+  {
+    name: "Material Ui",
+    icon: "/tech/mui.png",
+  },
+  {
+    name: "Node JS",
+    icon: "/tech/nodejs.png",
+  },
+  {
+    name: "Express Js",
+    icon: "/tech/express.png",
+  },
+  {
+    name: "AWS",
+    icon: "/tech/aws.png",
+  },
+  {
+    name: "MongoDB",
+    icon: "/tech/mongodb.png",
+  },
+  {
+    name: "MySql",
+    icon: "/tech/mysql.png",
+  },
+
+  {
+    name: "git",
+    icon: "/tech/git.png",
   },
 ];
