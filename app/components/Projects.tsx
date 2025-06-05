@@ -2,10 +2,10 @@
 import { Button } from "@/components/ui/button";
 import { PinContainer } from "@/components/ui/Pin";
 import { companies, projects } from "@/data";
+import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, MoveRightIcon } from "lucide-react";
-import { motion } from "motion/react";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
@@ -33,11 +33,10 @@ const Projects = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="text-center max-w-2xl mx-auto mt-5 mb-5"
+        className="text-center max-w-2xl mx-auto mt-5 mb-5 text-muted-foreground"
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi maiores
-        sapiente cumque dolorum earum sunt magni porro tempore perspiciatis
-        animi, quas
+        Explore real-world projects I’ve built — from frontend UIs to scalable
+        backends. Each one reflects attention to performance, UX, and quality.
       </motion.p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
@@ -47,99 +46,86 @@ const Projects = () => {
             key={item.id}
           >
             <PinContainer title={item.mainTitle} href={item.hrefLink}>
-              <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-8">
-                <div
-                  className="relative w-full h-full overflow-hidden lg:rounded-3xl"
-                  style={{ backgroundColor: "#13162D" }}
-                >
-                  <Image
-                    src={item.img}
-                    fill
-                    alt="cover"
-                    className="object-cover w-full h-full"
-                  />
-                </div>
+              <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-6 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-800">
+                <Image
+                  src={item.img}
+                  fill
+                  alt="cover"
+                  className="object-cover w-full h-full rounded-xl"
+                />
               </div>
 
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
+              <h1 className="font-semibold text-lg lg:text-2xl line-clamp-1">
                 {item.title}
               </h1>
 
-              <p
-                className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
-                style={{
-                  color: "#BEC1DD",
-                  margin: "1vh 0",
-                }}
-              >
+              <p className="text-zinc-600 dark:text-zinc-300 text-sm lg:text-base line-clamp-3 my-2">
                 {item.des}
               </p>
 
-              <div className="flex items-center justify-between mt-7 mb-3">
+              <div className="flex items-center justify-between mt-5">
                 <div className="flex items-center">
                   {item.iconLists.map((icon, index) => (
                     <div
                       key={index}
-                      className="border border-white/[.2] rounded-full bg-white lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                      className="border border-zinc-300 dark:border-zinc-700 rounded-full bg-white dark:bg-zinc-900 lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
                       style={{
                         transform: `translateX(-${5 * index + 2}px)`,
                       }}
                     >
                       <Image
                         src={icon}
-                        alt="icon5"
-                        width={800}
-                        height={600}
-                        className="p-2"
+                        alt={`icon-${index}`}
+                        width={24}
+                        height={24}
+                        className="p-1"
                       />
                     </div>
                   ))}
                 </div>
 
-                <div className="flex justify-center items-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                    Check Live Site
-                  </p>
-                  <MoveRightIcon className="ms-3" color="#CBACF9" />
+                <div className="flex items-center gap-2 text-purple-500 dark:text-purple-300 text-sm font-medium">
+                  Check Live Site
+                  <MoveRightIcon size={18} />
                 </div>
               </div>
             </PinContainer>
           </div>
         ))}
       </div>
+
       {projects.length > 6 && (
-        <div className="flex justify-center mb-5">
+        <div className="flex justify-center mt-6 mb-8">
           <Button
             onClick={() => setShowAll(!showAll)}
-            className="px-6 py-2 dark:text-white text-black rounded-full hover:text-blue-500 dark:hover:text-blue-500 transition"
+            className="px-6 py-2 rounded-full text-primary hover:text-blue-500 transition"
             variant={"link"}
           >
-            {showAll ? <ArrowLeft /> : ""}
+            {showAll && <ArrowLeft className="mr-2" />}
             {showAll ? "Show Less" : "Show More"}
-            {showAll ? "" : <ArrowRight />}
+            {!showAll && <ArrowRight className="ml-2" />}
           </Button>
         </div>
       )}
-      <div className="flex flex-wrap items-center justify-center mt-3 gap-4 md:gap-16 max-lg:mt-10">
+
+      <div className="flex flex-wrap items-center justify-center mt-6 gap-4 md:gap-16">
         {companies.map((company) => (
-          <React.Fragment key={company.id}>
-            <div className="flex md:max-w-60 max-w-32 gap-2">
-              <Image
-                src={company.img}
-                alt={company.name}
-                width={10}
-                height={600}
-                className="md:w-10 w-5"
-              />
-              <Image
-                src={company.nameImg}
-                alt={company.name}
-                width={company.id === 4 || company.id === 5 ? 100 : 150}
-                height={600}
-                className="md:w-24 w-20"
-              />
-            </div>
-          </React.Fragment>
+          <div className="flex md:max-w-60 max-w-32 gap-2" key={company.id}>
+            <Image
+              src={company.img}
+              alt={company.name}
+              width={30}
+              height={30}
+              className="md:w-10 w-6 object-contain"
+            />
+            <Image
+              src={company.nameImg}
+              alt={company.name}
+              width={company.id === 4 || company.id === 5 ? 100 : 150}
+              height={30}
+              className="md:w-24 w-20 object-contain"
+            />
+          </div>
         ))}
       </div>
     </div>

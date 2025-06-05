@@ -3,6 +3,7 @@ import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import { navItems } from "@/data";
 import { useEffect, useState } from "react";
 import About from "./components/About";
+import Experiance from "./components/Experiance";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Loading from "./components/Loading";
@@ -33,6 +34,7 @@ export default function Home() {
         <Myservices />
         <Projects />
         <TimeLine />
+        <Experiance />
         <Footer />
       </div>
     </main>
