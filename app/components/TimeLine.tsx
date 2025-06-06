@@ -4,11 +4,27 @@ import Image from "next/image";
 const TimeLine = () => {
   const data = [
     {
-      title: "oct 2024 - sep 2023",
+      title: (
+        <h3 className="text-base md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+          Nov 2022 - Jan 2024
+        </h3>
+      ),
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Built and launched Aceternity UI and Aceternity UI Pro from scratch
+            <strong>Student Parliament Member</strong>
+            <br />
+            <a
+              href="https://www.heuc.edu.et"
+              target="_blank"
+              className="underline text-blue-500"
+            >
+              Hope Enterprise University College
+            </a>
+            <br />I orchestrated three successful blood donation weeks, resolved
+            student-administration conflicts, co-organized charity week twice,
+            facilitated student-led seminars, managed seven campus clubs, and
+            contributed to policy-making through voting participation.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -16,37 +32,37 @@ const TimeLine = () => {
               alt="startup template"
               width={500}
               height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
             <Image
               src="/pro-2-2.png"
               alt="startup template"
               width={500}
               height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <Image
-              src="/pro-2-3.png"
-              alt="startup template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
           </div>
         </div>
       ),
     },
     {
-      title: "Early 2023",
+      title: (
+        <h3 className="text-base md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+          June 14 – Aug 2
+        </h3>
+      ),
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            I usually run out of copy, but when I see content this big, I try to
-            integrate lorem ipsum.
-          </p>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Lorem ipsum is for people who are too lazy to write copy. But we are
-            not. Here are some more example of beautiful designs I built.
+            <strong>Website Development Intern / Frontend</strong>
+            <br />
+            Amhara Bank – Full-time, Internship
+            <br />
+            During my Web Development internship, I actively participated in a
+            collaborative learning environment. I improved my skills in frontend
+            design, user interface development, and technical documentation. The
+            internship strengthened my understanding of building and enhancing
+            responsive web applications.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -54,91 +70,97 @@ const TimeLine = () => {
               alt="hero template"
               width={500}
               height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
             <Image
               src="/pro-1-2.png"
               alt="feature template"
               width={500}
               height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <Image
-              src="/pro-1-3.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <Image
-              src="/pro-1-4.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
           </div>
         </div>
       ),
     },
     {
-      title: "Changelog",
+      title: (
+        <h3 className="text-base md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+          Sep 2024 – Jan 2025
+        </h3>
+      ),
       content: (
         <div>
-          <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            Deployed 5 new components on Aceternity today
+          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+            <strong>Full Stack Developer</strong>
+            <br />
+            Nexa Engineering – Remote, Full-time
+            <br />
+            At Nexa Engineering, I led the development and deployment of a
+            complete web platform for showcasing and managing the company's
+            product catalog. The platform included both user-facing and admin
+            dashboards. I used React, Tailwind CSS, Node.js, Express, and
+            MongoDB.
           </p>
-          <div className="mb-8">
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Card grid component
-            </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Startup template Aceternity
-            </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Random file upload lol
-            </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Himesh Reshammiya Music CD
-            </div>
-            <div className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300">
-              ✅ Salman Bhai Fan Club registrations open
-            </div>
-          </div>
           <div className="grid grid-cols-2 gap-4">
             <Image
               src="https://assets.aceternity.com/pro/hero-sections.png"
               alt="hero template"
               width={500}
               height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
             <Image
               src="https://assets.aceternity.com/features-section.png"
               alt="feature template"
               width={500}
               height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <Image
-              src="https://assets.aceternity.com/pro/bento-grids.png"
-              alt="bento template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
-            />
-            <Image
-              src="https://assets.aceternity.com/cards.png"
-              alt="cards template"
-              width={500}
-              height={500}
-              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+              className="h-20 w-full rounded-lg object-cover shadow-md md:h-44 lg:h-60"
             />
           </div>
         </div>
       ),
     },
+    {
+      title: (
+        <h3 className="text-base md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+          Ongoing
+        </h3>
+      ),
+      content: (
+        <div>
+          <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+            I continuously build and refine personal and collaborative projects
+            to sharpen my skills and stay current with industry trends in both
+            web and mobile development. My focus includes modern frontend
+            frameworks, responsive UI/UX design, RESTful APIs, backend
+            architecture, and cross-platform development.
+          </p>
+          <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-100 mb-2">
+            Projects I've Been Practicing:
+          </p>
+          <div className="space-y-1">
+            {[
+              "Online food ordering apps",
+              "Hotel booking systems",
+              "Song streaming platforms",
+              "Appointment scheduling apps",
+              "Blog and content management systems",
+              "Quiz and trivia games",
+            ].map((project) => (
+              <div
+                key={project}
+                className="flex items-center gap-2 text-xs text-neutral-700 md:text-sm dark:text-neutral-300"
+              >
+                ✅ {project}
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+    },
   ];
+
   return (
     <div className="relative w-full overflow-clip" id="timeline">
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">

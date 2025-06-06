@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 
 const experiences = [
@@ -8,9 +7,7 @@ const experiences = [
     title: "Student Parliament Member",
     company: "Hope Enterprise University College",
     link: "https://www.heuc.edu.et",
-    description: `I've orchestrated 3 successful blood donation weeks, resolved student-admin conflicts, co-organized charity week twice, held student seminars, managed 7 campus clubs, and contributed to campus policy voting.`,
-    avatar: "/avatars/student.png",
-    person: "You",
+    description: `I orchestrated 3 blood donation weeks, resolved student-admin conflicts, co-organized 2 charity weeks, led seminars, managed 7 campus clubs, and participated in policy voting.`,
   },
   {
     date: "June – Aug 2024",
@@ -18,9 +15,7 @@ const experiences = [
     company: "Amhara Bank",
     link: "https://www.amharabank.com.et",
     description:
-      "Assisted in customer account management, performed teller operations, and supported branch administrative duties across various departments.",
-    avatar: "/avatars/bank.png",
-    person: "You",
+      "Assisted in customer account management, teller operations, and administrative duties across various departments.",
   },
   {
     date: "2021 – 2022",
@@ -28,9 +23,7 @@ const experiences = [
     company: "Freelance Projects",
     link: "",
     description:
-      "Built portfolio websites and landing pages for small businesses using React, TailwindCSS, and Firebase.",
-    avatar: "/avatars/web.png",
-    person: "You",
+      "Built portfolio websites and landing pages using React, TailwindCSS, and Firebase for small businesses.",
   },
   {
     date: "2019 – 2020",
@@ -38,69 +31,45 @@ const experiences = [
     company: "High School",
     link: "",
     description:
-      "Led a team of students to organize weekly tech meetups and programming challenges.",
-    avatar: "/avatars/club.png",
-    person: "You",
+      "Led weekly meetups and programming challenges, mentoring students interested in technology.",
   },
 ];
 
 const Experience = () => {
   return (
-    <div className="p-4 sm:p-6">
-      <div className="relative">
-        {experiences.map((exp, index) => (
-          <div key={index} className="flex gap-x-4 relative pb-10">
-            {/* Time */}
-            <div className="min-w-[80px] text-right text-xs text-gray-500 dark:text-neutral-400 pt-1">
-              {exp.date}
-            </div>
+    <section className="relative px-4 py-12 bg-[#0f0e1a] text-white">
+      <div className="mx-auto max-w-5xl">
+        <div className="relative border-l border-gray-600 pl-6 ml-2">
+          {experiences.map((exp, index) => (
+            <div key={index} className="mb-16 relative">
+              {/* Circle icon */}
+              <div className="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-[#3f3d56] border-2 border-white shadow-md"></div>
 
-            {/* Timeline indicator */}
-            <div className="relative">
-              <div className="size-3 rounded-full bg-blue-600 dark:bg-blue-400 absolute top-1 left-[6px] z-10"></div>
-              {index !== experiences.length - 1 && (
-                <div className="absolute top-3 left-[9px] w-px h-full bg-gray-200 dark:bg-neutral-700 z-0"></div>
-              )}
-            </div>
+              <p className="text-sm italic text-gray-400">{exp.date}</p>
 
-            {/* Content */}
-            <div className="flex-1">
-              <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold text-white mt-1">
                 {exp.title}{" "}
-                {exp.link ? (
-                  <Link
-                    href={exp.link}
-                    target="_blank"
-                    className="text-blue-600 underline decoration-dotted hover:text-blue-800 dark:text-blue-400"
-                  >
-                    @ {exp.company}
-                  </Link>
-                ) : (
-                  <span className="text-gray-600 dark:text-neutral-400">
-                    @ {exp.company}
-                  </span>
-                )}
-              </h3>
-              <p className="mt-1 text-sm text-gray-700 dark:text-neutral-300">
-                {exp.description}
-              </p>
-              <div className="flex items-center gap-2 mt-2">
-                <Image
-                  src={exp.avatar}
-                  alt={`${exp.person} avatar`}
-                  width={24}
-                  height={24}
-                  className="rounded-full object-cover"
-                />
-                <span className="text-xs text-gray-500 dark:text-neutral-400">
-                  {exp.person}
+                <span className="font-semibold text-indigo-400">
+                  {exp.link ? (
+                    <Link
+                      href={exp.link}
+                      target="_blank"
+                      className="underline hover:text-indigo-300"
+                    >
+                      @ {exp.company}
+                    </Link>
+                  ) : (
+                    <>@ {exp.company}</>
+                  )}
                 </span>
-              </div>
+              </h3>
+
+              <p className="text-gray-300 mt-2 text-sm">{exp.description}</p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
