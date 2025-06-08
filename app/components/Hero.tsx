@@ -9,9 +9,9 @@ import { Spotlights } from "@/components/ui/Spotlight";
 import { Spotlight } from "@/components/ui/SpotlightNew";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { words2 } from "@/data/index";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion"; // corrected import
 import { ArrowRight, Download } from "lucide-react";
+import { useEffect, useState } from "react";
 import { ModeToggle } from "./Themes/ThemeToggle";
 
 const Hero = () => {
@@ -23,6 +23,16 @@ const Hero = () => {
   ];
 
   const isMobile = useIsMobile();
+
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    const hasAnimated = localStorage.getItem("aboutAnimationDone");
+    if (!hasAnimated) {
+      setShouldAnimate(true);
+      localStorage.setItem("aboutAnimationDone", "true");
+    }
+  }, []);
 
   return (
     <div
@@ -45,25 +55,6 @@ const Hero = () => {
           gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(59, 130, 246, 0) 80%)"
           gradientSecond="radial-gradient(50% 50% at 50% 50%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 80%, transparent 100%)"
           gradientThird="radial-gradient(50% 50% at 50% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 80%, transparent 100%)"
-        />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-          className={cn(
-            "absolute inset-0",
-            "[background-size:90px_90px]",
-            "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-            "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
-          )}
-        />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2.5, ease: "easeInOut" }}
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
         />
       </div>
 
@@ -124,14 +115,44 @@ const Hero = () => {
         )}
 
         <motion.h1
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          layout
+          initial="hidden"
+          animate={shouldAnimate ? { opacity: 1 } : false}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.2,
+              },
+            },
+          }}
           className="mb-2 mr-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 text-left sm:text-center"
         >
-          <span className="block sm:inline-flex items-start sm:items-center gap-2">
-            <span className="hidden sm:inline">I&apos;m</span>
-            <span className="block sm:inline-flex mt-2 sm:mt-0 justify-start sm:justify-center">
+          <div className="block sm:inline-flex items-start sm:items-center gap-2">
+            <motion.span
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 1.2,
+                type: "spring",
+                bounce: 0.3,
+                delay: 0.6,
+              }}
+              className="hidden sm:inline"
+            >
+              I&apos;m
+            </motion.span>
+
+            <motion.span
+              initial={{ x: 80, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 1.2,
+                type: "spring",
+                bounce: 0.4,
+                delay: 0.6,
+              }}
+              className="block sm:inline-flex mt-2 sm:mt-0 justify-start sm:justify-center"
+            >
               <RotatingText
                 texts={words}
                 mainClassName="flex items-center justify-start sm:justify-center px-3 dark:bg-gradient-to-r dark:from-purple-600 dark:via-blue-600 dark:to-purple-700 bg-gradient-to-r from-indigo-800 via-purple-700 to-blue-700 text-white overflow-hidden py-1 rounded-lg"
@@ -144,14 +165,22 @@ const Hero = () => {
                 transition={{ type: "spring", damping: 30, stiffness: 400 }}
                 rotationInterval={4000}
               />
-            </span>
-          </span>
+            </motion.span>
+          </div>
         </motion.h1>
 
-        <p className="mt-4 mb-6 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-md md:max-w-xl text-center">
+        <motion.p
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          animate={
+            shouldAnimate ? { x: 0, opacity: 1 } : { x: -50, opacity: 0 }
+          }
+          transition={{ delay: 0.8, duration: 0.8, ease: "easeInOut" }}
+          className="mt-4 mb-6 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-md md:max-w-xl text-center"
+        >
           A creative mind passionate about coding and design - blending logic
           and aesthetics to solve real-world problems.
-        </p>
+        </motion.p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-2 sm:px-0">
