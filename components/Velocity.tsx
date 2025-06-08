@@ -33,7 +33,9 @@ interface VelocityImageProps {
 }
 
 interface ScrollVelocityImagesProps
-  extends Omit<VelocityImageProps, "baseVelocity"> {}
+  extends Omit<VelocityImageProps, "baseVelocity"> {
+  velocity: number;
+}
 
 function useElementWidth<T extends HTMLElement>(
   ref: React.RefObject<T | null>

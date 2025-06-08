@@ -15,6 +15,8 @@ const eslintConfig = [
     rules: {
       "react/no-unknown-property": "off", // disables warning for <motion.div />
       "react/style-prop-object": "off", // disables warning for dynamic `style={{ ... }}`
+      "@typescript-eslint/no-empty-object-type": "off",
+      "@next/next/no-img-element": "off",
     },
   },
 ];

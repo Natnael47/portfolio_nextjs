@@ -76,7 +76,7 @@ const Myservices = () => {
       <div className="mb-20">
         <AnimatedTestimonials testimonials={testimonials} />
       </div>
-      <div className="relative w-full my-12">
+      <div className="relative w-full mt-15 mb-6">
         <div className="w-screen left-1/2 -translate-x-1/2 relative overflow-hidden">
           <ScrollVelocityImages
             images={technologies}
