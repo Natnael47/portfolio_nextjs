@@ -1,5 +1,6 @@
 import { Timeline } from "@/components/ui/timeline";
 import Image from "next/image";
+import Link from "next/link";
 
 const TimeLine = () => {
   const data = [
@@ -14,13 +15,13 @@ const TimeLine = () => {
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
             <strong>Student Parliament Member</strong>
             <br />
-            <a
+            <Link
               href="https://www.heuc.edu.et"
               target="_blank"
               className="underline text-blue-500"
             >
               Hope Enterprise University College
-            </a>
+            </Link>
             <br />I orchestrated three successful blood donation weeks, resolved
             student-administration conflicts, co-organized charity week twice,
             facilitated student-led seminars, managed seven campus clubs, and
@@ -97,7 +98,7 @@ const TimeLine = () => {
             Nexa Engineering – Remote, Full-time
             <br />
             At Nexa Engineering, I led the development and deployment of a
-            complete web platform for showcasing and managing the company's
+            complete web platform for showcasing and managing the company&apos;s
             product catalog. The platform included both user-facing and admin
             dashboards. I used React, Tailwind CSS, Node.js, Express, and
             MongoDB.
@@ -137,7 +138,7 @@ const TimeLine = () => {
             architecture, and cross-platform development.
           </p>
           <p className="text-sm font-semibold text-neutral-800 dark:text-neutral-100 mb-2">
-            Projects I've Been Practicing:
+            Projects I&apos;ve Been Practicing:
           </p>
           <div className="space-y-1">
             {[
