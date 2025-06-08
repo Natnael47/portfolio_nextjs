@@ -7,6 +7,7 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion";
+import Image from "next/image";
 import React, { useLayoutEffect, useRef, useState } from "react";
 
 interface VelocityMapping {
@@ -35,7 +36,7 @@ interface ScrollVelocityImagesProps {
   imageClassName?: string;
 }
 
-function useElementWidth(ref: React.RefObject<HTMLElement>): number {
+function useElementWidth(ref: React.RefObject<HTMLElement | null>): number {
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
@@ -122,9 +123,10 @@ const ScrollVelocityImages: React.FC<ScrollVelocityImagesProps> = ({
       >
         {images.map((tech) => (
           <div className="w-28 h-28" key={`${tech.name}-${i}`}>
-            <img
+            <Image
               src={tech.icon}
               alt={tech.name}
+              fill
               className={`tech-icon ${imageClassName}`}
             />
           </div>

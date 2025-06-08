@@ -1,9 +1,9 @@
 "use client";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
-  title: string;
+  title: React.ReactNode;
   content: React.ReactNode;
 }
 
@@ -52,7 +52,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             </div>
           </div>
         ))}
-        {/* eslint-disable-next-line react/forbid-dom-props */}
+
         <div
           style={{
             height: height + "px",
