@@ -1,3 +1,5 @@
+"use client";
+
 import {
   motion,
   useAnimationFrame,
@@ -7,7 +9,6 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion";
-import Image from "next/image";
 import React, { useLayoutEffect, useRef, useState } from "react";
 
 interface VelocityMapping {
@@ -15,15 +16,10 @@ interface VelocityMapping {
   output: [number, number];
 }
 
-interface TechItem {
-  name: string;
-  icon: string;
-}
-
-interface ScrollVelocityImagesProps {
+interface VelocityImageProps {
+  images: { name: string; icon: string }[];
+  baseVelocity: number;
   scrollContainerRef?: React.RefObject<HTMLElement>;
-  images: TechItem[];
-  velocity?: number;
   className?: string;
   damping?: number;
   stiffness?: number;
@@ -36,9 +32,13 @@ interface ScrollVelocityImagesProps {
   imageClassName?: string;
 }
 
-function useElementWidth(ref: React.RefObject<HTMLElement | null>): number {
-  const [width, setWidth] = useState(0);
+interface ScrollVelocityImagesProps
+  extends Omit<VelocityImageProps, "baseVelocity"> {}
 
+function useElementWidth<T extends HTMLElement>(
+  ref: React.RefObject<T | null>
+): number {
+  const [width, setWidth] = useState(0);
   useLayoutEffect(() => {
     function updateWidth() {
       if (ref.current) {
@@ -49,14 +49,13 @@ function useElementWidth(ref: React.RefObject<HTMLElement | null>): number {
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
   }, [ref]);
-
   return width;
 }
 
-const ScrollVelocityImages: React.FC<ScrollVelocityImagesProps> = ({
-  scrollContainerRef,
+const VelocityImageRow: React.FC<VelocityImageProps> = ({
   images,
-  velocity = 100,
+  baseVelocity,
+  scrollContainerRef,
   className = "",
   damping = 50,
   stiffness = 400,
@@ -66,7 +65,7 @@ const ScrollVelocityImages: React.FC<ScrollVelocityImagesProps> = ({
   scrollerClassName,
   parallaxStyle,
   scrollerStyle,
-  imageClassName = "w-28 h-28 object-contain",
+  imageClassName = "",
 }) => {
   const baseX = useMotionValue(0);
   const scrollOptions = scrollContainerRef
@@ -74,10 +73,7 @@ const ScrollVelocityImages: React.FC<ScrollVelocityImagesProps> = ({
     : {};
   const { scrollY } = useScroll(scrollOptions);
   const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping,
-    stiffness,
-  });
+  const smoothVelocity = useSpring(scrollVelocity, { damping, stiffness });
   const velocityFactor = useTransform(
     smoothVelocity,
     velocityMapping.input,
@@ -101,7 +97,7 @@ const ScrollVelocityImages: React.FC<ScrollVelocityImagesProps> = ({
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * velocity * (delta / 1000);
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -113,27 +109,16 @@ const ScrollVelocityImages: React.FC<ScrollVelocityImagesProps> = ({
     baseX.set(baseX.get() + moveBy);
   });
 
-  const repeatedImages = [];
-  for (let i = 0; i < numCopies; i++) {
-    repeatedImages.push(
-      <div
-        className="flex flex-row gap-10"
-        key={i}
-        ref={i === 0 ? copyRef : null}
-      >
-        {images.map((tech) => (
-          <div className="w-28 h-28" key={`${tech.name}-${i}`}>
-            <Image
-              src={tech.icon}
-              alt={tech.name}
-              fill
-              className={`tech-icon ${imageClassName}`}
-            />
-          </div>
-        ))}
-      </div>
-    );
-  }
+  const allImages = Array.from({ length: numCopies }, (_, copyIdx) =>
+    images.map((img, imgIdx) => (
+      <img
+        key={`${copyIdx}-${imgIdx}`}
+        src={img.icon}
+        alt={img.name}
+        className={`mx-4 flex-shrink-0 ${imageClassName}`}
+      />
+    ))
+  ).flat();
 
   return (
     <div
@@ -143,9 +128,61 @@ const ScrollVelocityImages: React.FC<ScrollVelocityImagesProps> = ({
       <motion.div
         className={`${scrollerClassName} flex whitespace-nowrap ${className}`}
         style={{ x, ...scrollerStyle }}
+        ref={copyRef}
       >
-        {repeatedImages}
+        {allImages}
       </motion.div>
+    </div>
+  );
+};
+
+const ScrollVelocityImages: React.FC<ScrollVelocityImagesProps> = ({
+  images,
+  velocity = 100,
+  className,
+  scrollContainerRef,
+  damping,
+  stiffness,
+  numCopies,
+  velocityMapping,
+  parallaxClassName,
+  scrollerClassName,
+  parallaxStyle,
+  scrollerStyle,
+  imageClassName,
+}) => {
+  return (
+    <div>
+      <VelocityImageRow
+        images={images}
+        baseVelocity={velocity}
+        scrollContainerRef={scrollContainerRef}
+        className={className}
+        damping={damping}
+        stiffness={stiffness}
+        numCopies={numCopies}
+        velocityMapping={velocityMapping}
+        parallaxClassName={parallaxClassName}
+        scrollerClassName={scrollerClassName}
+        parallaxStyle={parallaxStyle}
+        scrollerStyle={scrollerStyle}
+        imageClassName={imageClassName}
+      />
+      <VelocityImageRow
+        images={images}
+        baseVelocity={-velocity}
+        scrollContainerRef={scrollContainerRef}
+        className={className}
+        damping={damping}
+        stiffness={stiffness}
+        numCopies={numCopies}
+        velocityMapping={velocityMapping}
+        parallaxClassName={parallaxClassName}
+        scrollerClassName={scrollerClassName}
+        parallaxStyle={parallaxStyle}
+        scrollerStyle={scrollerStyle}
+        imageClassName={imageClassName}
+      />
     </div>
   );
 };
