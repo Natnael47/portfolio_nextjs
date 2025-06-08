@@ -65,9 +65,9 @@ const Myservices = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="text-center max-w-4xl mx-auto mt-5"
+          className="text-center max-w-7xl mt-5"
         >
-          I offer end-to-end digital solutions — from responsive websites and
+          I offer end-to-end digital solutions, from responsive websites and
           mobile apps to sleek UI/UX and visual design. <br />
           My goal is to elevate your brand with modern, functional, and
           user-focused experiences.

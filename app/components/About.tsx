@@ -4,11 +4,22 @@ import { BackgroundGradient } from "@/components/background-gradient";
 import { HoverEffect } from "@/components/ui/CardHoverEffect";
 import { toolsData } from "@/data";
 import { Popover, PopoverContent, PopoverTrigger } from "@heroui/popover";
+import { motion } from "framer-motion";
 import { BriefcaseBusiness, CodeXml, GraduationCap } from "lucide-react";
-import { motion } from "motion/react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const About = () => {
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    const hasAnimated = localStorage.getItem("aboutAnimationDone");
+    if (!hasAnimated) {
+      setShouldAnimate(true);
+      localStorage.setItem("aboutAnimationDone", "true");
+    }
+  }, []);
+
   const aboutMe = [
     {
       title: "Languages",
@@ -32,8 +43,8 @@ const About = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={shouldAnimate ? { opacity: 0 } : false}
+      animate={shouldAnimate ? { opacity: 1 } : false}
       transition={{ duration: 1 }}
       className="w-full max-w-7xl px-[5%] py-6 mx-auto"
       id="about"
@@ -41,7 +52,7 @@ const About = () => {
       <motion.h4
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
         className="text-center mb-2 text-lg"
       >
         Introduction
@@ -50,23 +61,22 @@ const About = () => {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
         className="text-center text-5xl"
       >
         About Me
       </motion.h2>
 
-      {/* Top Section: Image Left, Text + HoverEffect Right */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="flex w-full flex-col lg:flex-row items-start justify-between gap-10 my-10"
       >
-        {/* Image */}
+        {/* Image from left */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           className="w-full lg:w-1/3 flex justify-center"
         >
@@ -81,11 +91,11 @@ const About = () => {
           </BackgroundGradient>
         </motion.div>
 
-        {/* Text and HoverEffect */}
+        {/* Text + HoverEffect from right */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
           className="w-full lg:w-2/3"
         >
           <p className="mb-5 text-base leading-relaxed">
@@ -98,35 +108,42 @@ const About = () => {
             ideas to life.
           </p>
 
-          <motion.div whileInView={{ scale: 1.05 }}>
+          {/* HoverEffect comes from bottom */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <HoverEffect items={aboutMe} />
           </motion.div>
-          {/* Full-width Tools Section */}
+
+          {/* Tools section from bottom one by one */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="w-full mt-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="w-full mt-6"
           >
             <motion.h4
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
               className="mb-2 text-lg font-semibold text-gray-700 dark:text-white/80 sm:my-2"
             >
               Tools I use
             </motion.h4>
 
-            <motion.ul
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-3 sm:gap-5"
-            >
+            <ul className="flex flex-wrap gap-3 sm:gap-5">
               {toolsData.map((tool, index) => (
                 <Popover key={index} placement="bottom">
                   <PopoverTrigger asChild>
                     <motion.li
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: 0.7 + index * 0.1, // stagger each item
+                      }}
                       whileHover={{ scale: 1.1 }}
                       className="flex items-center justify-center w-14 aspect-square dark:bg-amber-50 border rounded-lg border-gray-400 cursor-pointer hover:-translate-y-1 transition duration-500"
                     >
@@ -149,7 +166,7 @@ const About = () => {
                   </PopoverContent>
                 </Popover>
               ))}
-            </motion.ul>
+            </ul>
           </motion.div>
         </motion.div>
       </motion.div>
