@@ -1,4 +1,5 @@
 import { Timeline } from "@/components/ui/timeline";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,14 +7,14 @@ const TimeLine = () => {
   const data = [
     {
       title: (
-        <h3 className="text-base md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+        <h3 className="md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
           Nov 2022 - Jan 2024
         </h3>
       ),
       content: (
         <div>
-          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            <strong>Student Parliament Member</strong>
+          <p className="mb-8 font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+            <strong className="text-lg">Student Parliament Member</strong>
             <br />
             <Link
               href="https://www.heuc.edu.et"
@@ -48,14 +49,16 @@ const TimeLine = () => {
     },
     {
       title: (
-        <h3 className="text-base md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+        <h3 className="md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
           June 14 – Aug 2
         </h3>
       ),
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            <strong>Website Development Intern / Frontend</strong>
+            <strong className="text-lg">
+              Website Development Intern / Frontend
+            </strong>
             <br />
             Amhara Bank – Full-time, Internship
             <br />
@@ -93,7 +96,7 @@ const TimeLine = () => {
       content: (
         <div>
           <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
-            <strong>Full Stack Developer</strong>
+            <strong className="text-lg">Full Stack Developer</strong>
             <br />
             Nexa Engineering – Remote, Full-time
             <br />
@@ -164,15 +167,37 @@ const TimeLine = () => {
 
   return (
     <div className="relative w-full overflow-clip" id="timeline">
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Changelog from my journey
-        </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
-        </p>
-      </div>
+      <motion.div className="my-10">
+        <motion.h4
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mb-2 text-lg"
+        >
+          My Coding Journey
+        </motion.h4>
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center text-5xl"
+        >
+          From Curious Beginner to Junior Developer
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="text-center max-w-7xl mt-5"
+        >
+          My journey into programming began with a deep curiosity for how things
+          work on the web. Through consistent learning and hands-on projects,
+          I've built a solid foundation in front-end and back-end development.
+          As a junior developer, I'm passionate about writing clean code,
+          solving real-world problems, and growing with every line I write.
+        </motion.p>
+      </motion.div>
+
       <Timeline data={data} />
     </div>
   );

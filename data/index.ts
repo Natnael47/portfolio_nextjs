@@ -466,6 +466,22 @@ export const technologies = [
     icon: "/tech/express.png",
   },
   {
+    name: "c++",
+    icon: "/tech/c-cpp.png",
+  },
+  {
+    name: "c",
+    icon: "/tech/c-original.png",
+  },
+  {
+    name: "java",
+    icon: "/tech/java.png",
+  },
+  {
+    name: "php",
+    icon: "/tech/php.png",
+  },
+  {
     name: "AWS",
     icon: "/tech/aws.png",
   },

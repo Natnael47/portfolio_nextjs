@@ -5,7 +5,7 @@ import { HoverEffect } from "@/components/ui/CardHoverEffect";
 import { toolsData } from "@/data";
 import { Popover, PopoverContent, PopoverTrigger } from "@heroui/popover";
 import { motion } from "framer-motion";
-import { BriefcaseBusiness, CodeXml, GraduationCap } from "lucide-react";
+import { CodeXml, GraduationCap, PanelsTopLeft } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -22,22 +22,23 @@ const About = () => {
 
   const aboutMe = [
     {
+      title: "Education",
+      description:
+        "Completed a Bachelor's degree in Computer Science in early 2025, focusing on software engineering, web development, and modern programming practices.",
+      icon: <GraduationCap size={40} />,
+    },
+
+    {
       title: "Languages",
       description:
         "Proficient in HTML, CSS, JavaScript, React.js, and Next.js for building responsive and dynamic web applications.",
       icon: <CodeXml size={40} />,
     },
     {
-      title: "Education",
-      description:
-        "Completed B.Tech in Computer Science, focusing on software engineering, web development, and modern programming practices.",
-      icon: <GraduationCap size={40} />,
-    },
-    {
       title: "Projects",
       description:
         "Developed 5+ full-stack projects including dashboards, e-commerce platforms, and custom web apps for real-world use cases.",
-      icon: <BriefcaseBusiness size={40} />,
+      icon: <PanelsTopLeft size={40} />,
     },
   ];
 

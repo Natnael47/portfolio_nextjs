@@ -36,6 +36,26 @@ const Myservices = () => {
     },
   ];
 
+  // Animation Variants for Staggered Reveal
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -73,9 +93,21 @@ const Myservices = () => {
           user-focused experiences.
         </motion.p>
       </motion.div>
-      <div className="mb-20">
-        <AnimatedTestimonials testimonials={testimonials} />
-      </div>
+
+      {/* Staggered Testimonials Animation */}
+      <motion.div
+        className="mb-20"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        <motion.div variants={childVariants}>
+          <AnimatedTestimonials testimonials={testimonials} />
+        </motion.div>
+      </motion.div>
+
+      {/* Scroll Velocity Tech Icons */}
       <div className="relative w-full mt-15 mb-6">
         <div className="w-screen left-1/2 -translate-x-1/2 relative overflow-hidden">
           <ScrollVelocityImages
