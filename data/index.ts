@@ -499,26 +499,3 @@ export const technologies = [
     icon: "/tech/git.png",
   },
 ];
-
-export const NewDataX = [
-  {
-    text: "Hello,",
-    className: "text-5xl",
-  },
-  {
-    text: "My",
-    className: "text-5xl",
-  },
-  {
-    text: "Name",
-    className: "text-5xl",
-  },
-  {
-    text: "Is",
-    className: "text-5xl",
-  },
-  {
-    text: "Natnael",
-    className: "text-[#225CFC] dark:text-[#C084FC] text-5xl",
-  },
-];
