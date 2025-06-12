@@ -50,7 +50,7 @@ const TimeLine = () => {
     {
       title: (
         <h3 className="md:text-lg font-semibold text-neutral-900 dark:text-neutral-100">
-          June 14 – Aug 2
+          June 14 – Aug 2, 2024
         </h3>
       ),
       content: (
@@ -108,7 +108,7 @@ const TimeLine = () => {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
-              src="https://assets.aceternity.com/pro/hero-sections.png"
+              src="/nexa-2.png"
               alt="hero template"
               width={500}
               height={500}
@@ -192,9 +192,10 @@ const TimeLine = () => {
         >
           My journey into programming began with a deep curiosity for how things
           work on the web. Through consistent learning and hands-on projects,
-          I've built a solid foundation in front-end and back-end development.
-          As a junior developer, I'm passionate about writing clean code,
-          solving real-world problems, and growing with every line I write.
+          I&aposve built a solid foundation in front-end and back-end
+          development. As a junior developer, I&aposm passionate about writing
+          clean code, solving real-world problems, and growing with every line I
+          write.
         </motion.p>
       </motion.div>
 

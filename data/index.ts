@@ -108,8 +108,8 @@ export const projects = [
   },
   {
     id: 2,
-    mainTitle: "/ui.aceternity.com",
-    hrefLink: "https://twitter.com/mannupaaji",
+    mainTitle: "/nexaengineeringsolution.com",
+    hrefLink: "https://nexaengineeringsolution.com",
     title: "Yoom - Video Conferencing App",
     des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
     img: "/p2.svg",

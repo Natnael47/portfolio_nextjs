@@ -5,6 +5,7 @@ import { companies, projects } from "@/data";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, MoveRightIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const Projects = () => {
@@ -84,10 +85,13 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2 text-purple-500 dark:text-purple-300 text-sm font-medium">
+                <Link
+                  href={item.hrefLink}
+                  className="flex items-center gap-2 text-purple-500 dark:text-purple-300 text-lg font-medium"
+                >
                   Check Live Site
                   <MoveRightIcon size={18} />
-                </div>
+                </Link>
               </div>
             </PinContainer>
           </div>
